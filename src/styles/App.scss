@@ -1,0 +1,278 @@
+@import './variables.scss';
+
+* {
+  margin: 0px;
+  font-family: 'Lato', sans-serif;
+}
+
+nav {
+  height: 93px;
+  width: 100%;
+  display: flex;
+  z-index: 1;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  box-shadow: 0px 4px 16px rgba(1, 28, 64, 0.2);
+}
+
+.header {
+  .header-container {
+    // display: flex;
+    // justify-content: space-around;
+    display: grid;
+    grid-template-columns: 2fr repeat(3, 1fr);
+    width: 80%;
+    align-items: center;
+
+    .links {
+      button {
+        border: none;
+        background-color: $white;
+        font-size: 25px;
+        color: $auttar-cinza;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.navbar-img {
+  width: 160px;
+
+}
+
+.searchbar-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 30px;
+  margin: 0px auto;
+  padding: 70px 20px 20px;
+  align-items: center;
+  .searchbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1088px;
+    height: 53px;
+    background-color: $white;
+    margin-right: 20px;
+    padding: 5px 30px;
+    border: 1px solid #F1F1F1;
+    box-shadow: 4px 4px 16px rgba(1, 28, 64, 0.1);
+    border-radius: 40px;
+  
+    input{
+      border: none;
+      font-size: 16px;
+      width: 100%;
+    }
+
+    button {
+      border: none;
+      background-color: $white;
+      height: 20px;
+    }
+  }
+
+  p {
+    font-size: 35px;
+  }
+}
+
+.home{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  color: $auttar-cinza;
+  .home-text{
+    display: flex;
+    padding: 100px 59px;
+    .home-text-container{
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      gap: 50px;
+    }
+
+    h1 {
+      font-size: 54px;
+    }
+
+    span {
+      color: $auttar-cinza;
+      background: linear-gradient(to bottom, $white 50%, $mark 50%);
+    }
+
+    button {
+      height: 66px;
+      width: 231px;
+      background: $light-green;
+      box-shadow: 4px 4px 16px rgba(1, 28, 64, 0.1);
+      border-radius: 11px;
+      border: none;
+      color: $white;
+      font-size: 20px;
+      cursor: pointer;
+    }
+  }
+  
+  .home-background{
+    img {
+    height: auto;
+    }
+  }
+}
+
+.pokedex-header{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 60px;
+}
+
+.pokedex-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.pokemon-card {
+  display: flex;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+}
+
+.pokemon-image {
+  width: 70px;
+  height: 70px;
+  margin-right: 10px;
+}
+
+.pokemon-image-container {
+  padding: 0px 5px;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 10px 10px 0px;
+  flex: 1;
+}
+
+.card-top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-top h3 {
+  text-transform: capitalize;
+}
+
+.card-bottom {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pokemon-type {
+  display: flex;
+}
+
+.pokemon-type-text {
+  margin-right: 10px;
+  text-transform: capitalize;
+}
+
+.pagination-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  button {
+    border: none;
+    background-color: $white;
+  }
+
+  .pagination-ball{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: $pagination;
+    cursor: pointer;
+  }
+
+  .pagination-ball-center{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin: 0 16px;
+    background-color: $pagination-ball-center;
+  }
+}
+
+.pokemon-heart-btn {
+  border: none;
+  background-color: white;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.25);
+  padding: 4px;
+  cursor: pointer;
+}
+
+.not-found-text {
+  text-align: center;
+  font-size: 1.25rem;
+  padding: 20px;
+}
+
+.loading{
+  display: flex;
+  justify-content: center;
+  padding: 100px 0;
+  .loading-container {
+    width: 120px;
+    height: 75px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    
+    .text-loading {
+      font-size: 22px;
+      margin: auto;
+    }
+
+    .ball {
+      animation: bounce .5s alternate infinite;
+      img {
+        height: 25px;
+      }
+    }
+
+    .ball:nth-child(2) {
+      animation-delay: .16s;
+    }
+
+    .ball:nth-child(3) {
+      animation-delay: .32s;
+    }
+
+    @keyframes bounce {
+      from {
+        transform: scale(1.25)
+      }
+      to {
+        transform: translateY(-50px) scaleX(1);
+      }
+    }
+  }
+}
+
+.App {
+  text-align: center;
+}
+

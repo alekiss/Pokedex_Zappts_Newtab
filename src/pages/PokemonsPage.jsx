@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { getPokemon, getPokemonData, searchPokemon } from "./api";
-import "./App.css";
-import Navbar from "./components/Navbar";
-import Pokedex from "./components/Pokedex";
-import Searchbar from "./components/Searchbar";
-import { FavoriteProvider } from "./context/favoriteContext";
+import { getPokemon, getPokemonData, searchPokemon } from "./../api";
+import "./../styles/App.scss";
+import Pokedex from "./../components/Pokedex";
+import Searchbar from "./../components/Searchbar";
+import Loading from "./../components/Loading";
+import { FavoriteProvider } from "./../context/favoriteContext";
 
 const favoritesKey = "f";
 
-function App() {
+function PokemonsPage() {
   const [loading, setLoading] = useState(false);
   const [pokemons, setPokemons] = useState([]);
   const [page, setPage] = useState(0);
@@ -88,10 +88,9 @@ function App() {
       }}
     >
       <div>
-        <Navbar />
         <Searchbar onSearch={onSearchHandler} />
         {notFound ? (
-          <div className="not-found-text">Meteu essa?</div>
+          <Loading />
         ) : (
           <Pokedex
             pokemons={pokemons}
@@ -106,4 +105,4 @@ function App() {
   );
 }
 
-export default App;
+export default PokemonsPage;
