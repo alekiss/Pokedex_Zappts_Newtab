@@ -11,8 +11,8 @@ import Contact from './pages/Contact';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Navbar />
     <BrowserRouter>
+    <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/pokemons" element={<PokemonsPage />} />
@@ -23,32 +23,3 @@ root.render(
 );
 
 reportWebVitals();
-
-// Tentativa 1
-
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(
-//   <React.StrictMode>
-//      <Router>
-//       <Routes>
-//         <Route path="/pokemons" exact element={<App />}/>
-//       </Routes>
-//     </Router>
-
-//   </React.StrictMode>
-// );
-
-// reportWebVitals();
-
-
-// Tentativa 2
-
-// React.render(
-//   <Router>
-//     <Routes>
-//       <Route path="/pokemons" exact element={<App />} />
-//     </Routes>
-//   </Router>,
-
-//   document.getElementById("root")
-// )

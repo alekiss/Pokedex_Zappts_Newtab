@@ -9,21 +9,21 @@ const Navbar = () => {
         <div>
           <img alt="pokeapi-logo" src={logoImg} className="navbar-img" />
         </div>
-        {/* <Link to="/"> */}
+        <Link to="/">
           <div className="links">
             <button>Home</button>
           </div>
-        {/* </Link>
-        <Link to="/pokemons"> */}
+        </Link>
+        <Link to="/pokemons">
           <div className="links">
             <button>Pokemons</button>
           </div>
-        {/* </Link>
-        <Link to="/contact"> */}
+        </Link>
+        <Link to="/contact">
           <div className="links">
             <button>Contato</button>
           </div>
-        {/* </Link> */}
+        </Link>
       </div>
     </nav>
   );

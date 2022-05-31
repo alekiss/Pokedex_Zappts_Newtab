@@ -20,13 +20,18 @@ const Pokedex = (props) => {
 
   return (
     <div>
+      <div className="filters">
+        
+      </div>
       {loading ? (
         <Loading />
       ) : (
-        <div className="pokedex-grid">
-            {pokemons && pokemons.map((pokemon, index) => {
-                return (<Pokemon key={index} pokemon={pokemon} />)
-            })}
+        <div className="pokedex-grid-container"> 
+          <div className="pokedex-grid">
+              {pokemons && pokemons.map((pokemon, index) => {
+                  return (<Pokemon key={index} pokemon={pokemon} />)
+              })}
+          </div>
         </div>
       )}
       <div className="pokedex-header">

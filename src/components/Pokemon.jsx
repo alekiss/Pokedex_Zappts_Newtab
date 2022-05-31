@@ -1,48 +1,56 @@
-import React, {useContext} from 'react';
-import FavoriteContext from '../context/favoriteContext';
+import React, { useState } from 'react';
+import Modal from './Modal/Modal';
 
 const Pokemon = (props) => {
 
-    const {favoritePokemon, updateFavoritePokemons} = useContext(FavoriteContext)
     const {pokemon} = props
-    const onHeartClick = () => {
-        updateFavoritePokemons(pokemon.name)
+    const type = pokemon.types.map((type, index) => type.type.name)
+    const [ showModal, setShowModal ] = useState(false)
+
+    const openModal = () => {
+        setShowModal(prev => {
+            return !prev
+        })
     }
-    const heart = favoritePokemon.includes(pokemon.name) ? "❤️" : "🖤"
 
     return (
-        <div className="pokemon-card">
-            <div className="pokemon-image-container">
-                <img 
-                alt={pokemon.name} 
-                src={pokemon.sprites.front_default}
-                className="pokemon-image"
-                />
-            </div>
-            <div className="card-body">
-                <div className="card-top">
-                    <h3>{pokemon.name}</h3>
-                    <div>#{pokemon.id}</div>
-                </div>
-                <div className="card-bottom">
-                    <div className="pokemon-type">
-                    {pokemon.types.map( (type, index) => {
-                        return (
-                            <div 
-                                key={index}
-                                className="pokemon-type-text"
-                            >
-                                {type.type.name}
-                            </div>
-                        )
-                    })}
+        <>
+            <div className="pokemon-card" onClick={openModal}>
+                <div className="card-body">
+                    <div className="card-top">
+                        <h3>{pokemon.name}</h3>
                     </div>
-                    <button className="pokemon-heart-btn" onClick={onHeartClick}>
-                        {heart}
-                    </button>
+                    <div className="card-bottom">
+                        <div className="pokemon-type">
+                        {pokemon.types.map( (type, index) => {
+                            return (
+                                <div 
+                                    key={index}
+                                    className="pokemon-type-text"
+                                >
+                                    <section className={type}>{type.type.name}</section>
+                                </div>
+                            )
+                        })}
+                        </div>
+                    </div>
+                </div>
+                <div className="pokemon-image-container">
+                    <div className="id">#{pokemon.id}</div>
+                    <img 
+                    alt={pokemon.name} 
+                    src={pokemon.sprites.front_default}
+                    className="pokemon-image"
+                    />
                 </div>
             </div>
-        </div>
+
+            {showModal && (
+                <Modal 
+                    closeModal={setShowModal}
+                />
+            )}
+        </>
     )
 }
 
