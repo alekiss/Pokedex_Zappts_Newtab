@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logoImg from "./../assets/logo.png";
 
 const Navbar = () => {
+
+  const [activeNav, setActiveNav] = useState('#')
+
   return (
     <nav className="header">
       <div className="header-container">
@@ -11,17 +14,17 @@ const Navbar = () => {
         </div>
         <Link to="/">
           <div className="links">
-            <button>Home</button>
+            <button href="#" onClick={() => setActiveNav('#')} className={activeNav === '#' ? 'active' : ''}>Home</button>
           </div>
         </Link>
         <Link to="/pokemons">
           <div className="links">
-            <button>Pokemons</button>
+            <button href="#pokemons" onClick={() => setActiveNav('#pokemons')} className={activeNav === '#pokemons' ? 'active' : ''}>Pokemons</button>
           </div>
         </Link>
         <Link to="/contact">
           <div className="links">
-            <button>Contato</button>
+            <button href="#contato" onClick={() => setActiveNav('#contato')} className={activeNav === '#contato' ? 'active' : ''}>Contato</button>
           </div>
         </Link>
       </div>
